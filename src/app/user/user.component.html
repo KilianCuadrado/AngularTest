@@ -1,2 +1,10 @@
-<p>{{ name }}</p>
+<!-- Si el usuario está seleccionado, se le asigna la clase active 
+ Con la clase active se puede dar un estilo diferente a los 
+ usuarios seleccionados. A selected se le pone parentesis para 
+ indicar que es una propiedad de binding. -->
+<button [class.active]="selected()" (click)="onSelectUser()">
+<!-- Si le pones [] a src, estás indicando que es una propiedad de binding -->
+  <img [src]="imagePath" [alt]="user().name" >
+  <span>{{ user().name }}</span>
+</button>
 

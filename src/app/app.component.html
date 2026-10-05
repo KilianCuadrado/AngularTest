@@ -2,6 +2,29 @@
 
 </app-header>
 <main>
-    <app-user></app-user>
+    @for (user of users; track user.id){
+        <app-user 
+        [user]="user"
+        (select)="onSelectUser($event)"
+        [selected]="selectedUser?.id === user.id"
+        >
+        <!-- Cuando se selecciona un usuario, se emite el id del 
+        usuario seleccionado. El (select) es un evento personalizado
+        que se define en el componente UserComponent. Lo que significa
+        que el componente AppComponent puede escuchar este evento y
+        reaccionar en consecuencia.Con el $event se pasa el valor 
+        del evento. Lo que significa que el componente AppComponent
+        recibe el id del usuario seleccionado y puede reaccionar en
+        consecuencia. Ya que el id del usuario seleccionado es el valor
+        que se pasa a través del evento. El [selected] es una propiedad
+        que se pasa al componente UserComponent para indicar si el
+        usuario está seleccionado. Ya que el [selected] es una propiedad
+        que se pasa al componente UserComponent para indicar si el
+        usuario está seleccionado. Con el [selected] se puede indicar
+        si un usuario está seleccionado o no. -->
+        
+
+        </app-user>
+    }
     <app-tasks></app-tasks>
 </main>
