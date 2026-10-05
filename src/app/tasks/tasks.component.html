@@ -1,15 +1,16 @@
 <section>
     <h1>
-        {{ name }}'s tasks
+        {{ username() }}'s tasks
     </h1>
     <button>Add task</button>
-    <ul>
-        <li>
-            <p>Task 1</p>
-            <button>Remove</button>
-        </li>
-            
-            
-        
-    </ul>
+    <div class="task-list">
+        @for (task of taskList; track task.id){
+            @if(isSameUser(task.userId)){
+                <h3>{{ task.title }}</h3>
+                <p>{{task.dueDate}}</p>
+                <p>{{task.summary}}</p>
+
+            }
+        }
+    </div>
 </section>
