@@ -1,11 +1,13 @@
 <section>
     <h1>
-        {{ username() }}'s tasks
+        {{ user() ? user()!.name + "'s tasks" : 'Select a user' }}
     </h1>
-    <button>Add task</button>
+    @if (user()) {
+        <button>Add task</button>
+    }
     <div class="task-list">
-        @for (task of taskList; track task.id){
-            @if(isSameUser(task.userId)){
+        @for (task of tasks; track task.id){
+            @if(task.userId === user()?.id){
                 <h3>{{ task.title }}</h3>
                 <p>{{task.dueDate}}</p>
                 <p>{{task.summary}}</p>

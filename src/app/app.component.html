@@ -24,8 +24,12 @@
         si un usuario está seleccionado o no. -->
         
 
-        </app-user>
+        </app-user> 
         
     }
-    <app-tasks></app-tasks>
+    <app-tasks 
+    [user]="selectedUser">
+    
+    </app-tasks>
+    
 </main>
