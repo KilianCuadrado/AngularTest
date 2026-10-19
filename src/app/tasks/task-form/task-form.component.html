@@ -1,0 +1,21 @@
+<dialog open>
+    <h2>Add task</h2>
+    <form (submit)="$event.preventDefault(); onSubmit(title.value, summary.value, dueDate.value)">
+        <label>
+            Title
+            <input #title placeholder="Task title" required>
+        </label>
+        <label>
+            Description
+            <textarea #summary placeholder="Task description" required></textarea>
+        </label>
+        <label>
+            Due date
+            <input #dueDate type="date" required>
+        </label>
+        <div>
+            <button type="button" (click)="cancel.emit()">Cancel</button>
+            <button type="submit">Add task</button>
+        </div>
+    </form>
+</dialog>
